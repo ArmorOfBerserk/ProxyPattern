@@ -5,7 +5,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import model.Main;
 import proxy.Proxy;
-import proxy.Subject;
 import proxy.SubjectInterface;
 
 import java.util.ArrayList;
@@ -18,18 +17,9 @@ public class Controller {
     public void initialize(){
         gallery = new ArrayList<>();
 
-
-
-        gallery.add(new ImageviewProxy(new Proxy(Main.trovaUrl("res/image.png"))));
-        gallery.add(new ImageviewProxy(new Subject(Main.trovaUrl("res/image.png"))));
-        gallery.add(new ImageviewProxy(new Proxy(Main.trovaUrl("res/image.png"))));
-        gallery.add(new ImageviewProxy(new Subject(Main.trovaUrl("res/image.png"))));
-        gallery.add(new ImageviewProxy(new Proxy(Main.trovaUrl("res/image.png"))));
-        gallery.add(new ImageviewProxy(new Subject(Main.trovaUrl("res/image.png"))));
-        gallery.add(new ImageviewProxy(new Subject(Main.trovaUrl("res/image.png"))));
-        gallery.add(new ImageviewProxy(new Subject(Main.trovaUrl("res/image.png"))));
-        gallery.add(new ImageviewProxy(new Subject(Main.trovaUrl("res/image.png"))));
-        gallery.add(new ImageviewProxy(new Subject(Main.trovaUrl("res/image.png"))));
+        for (int i = 0; i < 15; i++) {
+            gallery.add(new ImageviewProxy(new Proxy(Main.trovaUrl("res/pkm" + i + ".png"))));
+        }
 
         gallery.forEach(caricatore -> {
             flowPane.getChildren().add(caricatore);
